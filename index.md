@@ -7,5 +7,8 @@
 [Open](http://lborgman.github.io/hour/hour.html)
 
 ## Compass
-[Open](http://lborgman.github.io/compass/compass.html)
+[Open][def]
 
+
+
+[def]: http://lborgman.github.io/compass/compass.html
