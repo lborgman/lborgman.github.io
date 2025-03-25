@@ -14,4 +14,4 @@ I would describe it as a rather full grown mindmap app.
 Please test and give me some feedback about what I aught to change.
 
 #### Developer?
-If you are developing web sites there might be some es6 module for you in the repository.
+> If you are developing web sites there might be some es6 module for you in the repository.
