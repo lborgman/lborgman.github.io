@@ -1,7 +1,7 @@
 # List of PWA:s
 
 ## Compass
-[Open](http://lborgman.github.io/compass/compass.html)
+([Open](http://lborgman.github.io/compass/compass.html))
 Can you write a compass app as a PWA?
 
 ## Hour
