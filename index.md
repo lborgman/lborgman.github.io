@@ -4,7 +4,7 @@
 ([Open](http://lborgman.github.io/compass/compass.html))
 Can you write a compass app as a PWA?
 
-## Hour
+## Hour Number
 ([Open](http://lborgman.github.io/hour/hour.html))
 A little toy to impress on your friends... or not.
 
