@@ -18,14 +18,14 @@ Please test and give me some feedback about what I aught to change.
 # Utilities
 
 ## Mobile output for "Google Doc - Published to Web"
-<a href="https://lborgman.github.io/responsiveGDoc/responsiveGDoc.html">
 <figure style="xfloat:left">
   <img src="https://lborgman.github.io/responsiveGDoc/img/logo2.svg" alt="Logo" style="width:60px;">
   <figcaption style="color:gray; xfont-size:12px;">
+<a href="https://lborgman.github.io/responsiveGDoc/responsiveGDoc.html">
     Open
+</a>
   </figcaption>
 </figure>
-</a>
 
 ([Open](https://lborgman.github.io/responsiveGDoc/responsiveGDoc.html))
 
