@@ -44,7 +44,7 @@ Please test and give me some feedback about what I aught to change.
 > *Tip:* If you are developing web sites there might be some es6 module for you in the repository.
 
 
-## Mobile output for "Google Doc - Published to Web"
+## Mobile View of Google Docs
 <figure style="display:inline-block; padding:8px; border:2px solid lightgray; border-radius:8px;">
   <img src="https://lborgman.github.io/responsiveGDoc/img/logo2.svg" alt="Logo" style="width:60px;">
   <figcaption style="color:gray; xfont-size:12px;">
@@ -54,7 +54,7 @@ Please test and give me some feedback about what I aught to change.
   </figcaption>
 </figure>
 
-Google Doc has a feature "Publish to Web". This is excellent. Except that the web page has an old format that does not fit mobiles. This utility tries to fix that.
+Google Docs has a feature "Publish to Web". This is excellent. Except that the web page has an old format that does not fit mobiles. This utility tries to fix that.
 
 ----
 The source code for this is all on GitHub.
