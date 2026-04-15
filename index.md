@@ -18,5 +18,15 @@ Please test and give me some feedback about what I aught to change.
 # Utilities
 
 ## Mobile output for "Google Doc - Published to Web"
+<a href="https://lborgman.github.io/responsiveGDoc/responsiveGDoc.html">
+<figure style="xfloat:left">
+  <img src="https://lborgman.github.io/responsiveGDoc/img/logo2.svg" alt="Logo" style="width:60px;">
+  <figcaption style="color:gray; xfont-size:12px;">
+    Open
+  </figcaption>
+</figure>
+</a>
+
 ([Open](https://lborgman.github.io/responsiveGDoc/responsiveGDoc.html))
+
 Google Doc has a feature "Publish to Web". This is excellent. Except that the web page has an old format that does not fit mobiles. This utility tries to fix that.
