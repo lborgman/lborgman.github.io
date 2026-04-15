@@ -2,7 +2,17 @@
 
 ## Compass
 ([Open](https://lborgman.github.io/compass/compass.html))
-Can you write a compass app as a PWA?
+
+<figure style="display:inline-block; padding:8px; border:2px solid lightgray; border-radius:8px;">
+  <img src="https://lborgman.github.io/compass/compass.svg" alt="Logo" style="width:60px;">
+  <figcaption style="color:gray; xfont-size:12px;">
+<a href="https://lborgman.github.io/compass/compass.html">
+    Open
+</a>
+  </figcaption>
+</figure>
+
+Can you write a compass app as a PWA web page?
 
 ## Hour Number
 ([Open](https://lborgman.github.io/hour/hour.html))
