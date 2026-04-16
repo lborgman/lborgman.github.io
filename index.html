@@ -1,8 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    #app-container {
+        outline: 4px dotted red;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .app {
+            position: relative;
+            outline: 4px dotted green;
+
+            figure {
+                display: inline-block;
+                margin: 0px;
+                padding: 8px;
+                border: 2px solid lightgray;
+                border-radius: 8px;
+
+                img {
+                    width: 60px;
+                }
+            }
+
+            .opener {
+                cursor: pointer;
+                background-color: red;
+                opacity: 0.2;
+                padding: 1px;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+</style>
 <script type="module">
-    document.body.append("hej")
-    alert("alert")
+    // @ts-check
+    // alert("here");
+
+    // The {} make JsDoc coloring appear??
+    {
+
+        /** @typedef {any} DynamicStringObject */
+
+        /**
+         * @typedef {Object} App
+         * @property {string} name
+         * @property {string} url
+         * @property {string} logo
+         * @property {string|HTMLElement} description
+         * */
+
+        /** @type {App[]} */
+        const apps = [
+                        {
+                name: "Compass",
+                logo: "https://lborgman.github.io/compass/compass.svg",
+                url: "https://lborgman.github.io/compass/compass.html",
+                description:
+                    mkElt("div", undefined, [
+                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
+                        mkElt("div", undefined, "Yes, you can. This works."),
+                        mkElt("div", undefined, "And it will work offline too.")
+                    ])
+            },
+            {
+                name: "Compass",
+                logo: "https://lborgman.github.io/compass/compass.svg",
+                url: "https://lborgman.github.io/compass/compass.html",
+                description:
+                    mkElt("div", undefined, [
+                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
+                        mkElt("div", undefined, "Yes, you can. This works."),
+                        mkElt("div", undefined, "And it will work offline too.")
+                    ])
+            },
+            {
+                name: "Compass",
+                logo: "https://lborgman.github.io/compass/compass.svg",
+                url: "https://lborgman.github.io/compass/compass.html",
+                description:
+                    mkElt("div", undefined, [
+                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
+                        mkElt("div", undefined, "Yes, you can. This works."),
+                        mkElt("div", undefined, "And it will work offline too.")
+                    ])
+            },
+            {
+                name: "Compass",
+                logo: "https://lborgman.github.io/compass/compass.svg",
+                url: "https://lborgman.github.io/compass/compass.html",
+                description:
+                    mkElt("div", undefined, [
+                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
+                        mkElt("div", undefined, "Yes, you can. This works."),
+                        mkElt("div", undefined, "And it will work offline too.")
+                    ])
+            },
+            {
+                name: "Compass",
+                logo: "https://lborgman.github.io/compass/compass.svg",
+                url: "https://lborgman.github.io/compass/compass.html",
+                description:
+                    mkElt("div", undefined, [
+                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
+                        mkElt("div", undefined, "Yes, you can. This works."),
+                        mkElt("div", undefined, "And it will work offline too.")
+                    ])
+            },
+
+            {
+                name: "Compass",
+                logo: "https://lborgman.github.io/compass/compass.svg",
+                url: "https://lborgman.github.io/compass/compass.html",
+                description:
+                    mkElt("div", undefined, [
+                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
+                        mkElt("div", undefined, "Yes, you can. This works."),
+                        mkElt("div", undefined, "And it will work offline too.")
+                    ])
+            },
+            {
+                name: "Compass",
+                logo: "https://lborgman.github.io/compass/compass.svg",
+                url: "https://lborgman.github.io/compass/compass.html",
+                description:
+                    mkElt("div", undefined, [
+                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
+                        mkElt("div", undefined, "Yes, you can. This works."),
+                        mkElt("div", undefined, "And it will work offline too.")
+                    ])
+            }
+
+        ];
+
+        const eltAppContainer = mkElt("p");
+        eltAppContainer.id = "app-container";
+        document.body.appendChild(eltAppContainer);
+
+        apps.forEach(app => {
+            console.log({ app });
+            const eltOpener = mkElt("div");
+            eltOpener.classList.add("opener");
+            const eltApp = mkElt("div", undefined, [
+                mkElt("figure", undefined, [
+                    mkElt("img", { src: app.logo }),
+                    mkElt("figcaption", undefined, app.name)
+                ]),
+                eltOpener
+            ]);
+            eltApp.classList.add("app");
+            eltAppContainer.appendChild(eltApp);
+        });
+
+        /**
+         * @param {string} type 
+         * @param {DynamicStringObject} [attrib]
+         * @param {string|string[]|HTMLElement|HTMLElement[]} [inner]
+         * @returns {HTMLElement}
+         */
+        function mkElt(type, attrib, inner) {
+            const elt = document.createElement(type);
+
+            /**
+             * 
+             * @param {HTMLElement | HTMLElement[] | string | string[]} inr 
+             */
+            function addInner(inr) {
+                if (inr instanceof Element) {
+                    elt.appendChild(inr);
+                } else {
+                    const txt = document.createTextNode(inr.toString());
+                    elt.appendChild(txt);
+                }
+            }
+            if (inner) {
+                if (Array.isArray(inner) && inner.length && typeof inner != "string") {
+                    for (var i = 0; i < inner.length; i++)
+                        if (inner[i])
+                            addInner(inner[i]);
+                } else
+                    addInner(inner);
+            }
+            for (var x in attrib) {
+                elt.setAttribute(x, attrib[x]);
+            }
+            return elt;
+        }
+    }
 </script>
 
 <body>
