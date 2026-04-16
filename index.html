@@ -25,6 +25,13 @@
                 img {
                     width: 60px;
                 }
+
+                figcaption {
+                    width: 60px;
+                    overflow: clip;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
             }
 
             .description {
@@ -82,6 +89,15 @@
             border-radius: 8px;
             background-color: #71bace33;
             min-width: 150px;
+            max-width: 300px;
+
+            figure {
+                figcaption {
+                    display: flex;
+                    width: min-content;
+                    white-space: unset;
+                }
+            }
 
             .opener {
                 display: none;
@@ -127,8 +143,8 @@
                 url: "https://lborgman.github.io/compass/compass.html",
                 description:
                     mkElt("div", undefined, [
-                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
-                        mkElt("div", undefined, "Yes, you can. And it can work offline too.")
+                        mkElt("div", undefined, "- Can you write a compass app as a PWA web page?"),
+                        mkElt("div", undefined, "- Yes, you can. And it can work offline too.")
                     ])
             },
             {
@@ -262,7 +278,21 @@
 </script>
 
 <body>
-    Can we have an index.html here? hm.
+    <section style="max-width:400px;">
+        <h1>Some web apps</h1>
+    <p>
+        I think I have made it to a habit
+        to write a web app when I can't find
+        a tool I trust.
+        Here are some of those apps.
+    </p>
+    <p>
+        Those app are just like web pages.
+        To use them you just visit their web page.
+        (I avoid native apps from unknown sources because
+        of possible security problems.)
+    </p>
+    </section>
 </body>
 
 </html>
