@@ -2,14 +2,14 @@
 <html lang="en">
 <style>
     #app-container {
-        outline: 4px dotted red;
+        nooutline: 4px dotted red;
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
 
         .app {
             position: relative;
-            outline: 4px dotted green;
+            nooutline: 4px dotted green;
 
             figure {
                 display: inline-block;
@@ -23,9 +23,13 @@
                 }
             }
 
+            .description {
+                display: none;
+            }
+
             .opener {
                 cursor: pointer;
-                background-color: red;
+                nobackground-color: red;
                 opacity: 0.2;
                 padding: 1px;
                 position: absolute;
@@ -33,6 +37,37 @@
                 top: 0px;
                 width: 100%;
                 height: 100%;
+            }
+
+            .closer {
+                display: none;
+                cursor: pointer;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                width: 32px;
+                aspect-ratio: 1/ 1;
+                background-color: #0001;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .app.opened {
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #71bace33;
+            .opener {
+                display: none;
+            }
+
+            .description {
+                display: unset;
+            }
+
+            .closer {
+                display: flex;
+
             }
         }
     }
@@ -56,15 +91,14 @@
 
         /** @type {App[]} */
         const apps = [
-                        {
+            {
                 name: "Compass",
                 logo: "https://lborgman.github.io/compass/compass.svg",
                 url: "https://lborgman.github.io/compass/compass.html",
                 description:
                     mkElt("div", undefined, [
                         mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
-                        mkElt("div", undefined, "Yes, you can. This works."),
-                        mkElt("div", undefined, "And it will work offline too.")
+                        mkElt("div", undefined, "Yes, you can. And it can work offline too.")
                     ])
             },
             {
@@ -145,15 +179,29 @@
             console.log({ app });
             const eltOpener = mkElt("div");
             eltOpener.classList.add("opener");
+            const eltCloser = mkElt("div", undefined, "🗙");
+            eltCloser.classList.add("closer");
+            const eltDesc = mkElt("div", undefined, app.description);
+            eltDesc.classList.add("description");
             const eltApp = mkElt("div", undefined, [
                 mkElt("figure", undefined, [
                     mkElt("img", { src: app.logo }),
                     mkElt("figcaption", undefined, app.name)
                 ]),
-                eltOpener
+                eltDesc,
+                eltOpener,
+                eltCloser
             ]);
             eltApp.classList.add("app");
             eltAppContainer.appendChild(eltApp);
+            eltOpener.addEventListener("click", evt => {
+                evt.stopPropagation();
+                eltApp.classList.add("opened");
+            });
+            eltCloser.addEventListener("click", evt => {
+                evt.stopPropagation();
+                eltApp.classList.remove("opened");
+            });
         });
 
         /**
