@@ -8,6 +8,10 @@
         gap: 20px;
 
         .app {
+            transition-property: width, height, display;
+            transition-duration: 2s;
+            transition-behavior: allow-discrete;
+
             position: relative;
             nooutline: 4px dotted green;
 
@@ -25,6 +29,26 @@
 
             .description {
                 display: none;
+            }
+
+            .start {
+                display: none;
+                padding: 4px;
+                border: solid 0.5px #ccc;
+                border-radius: 4px;
+                text-decoration: none;
+                color: currentColor;
+                background-color: yellow;
+                background-color: transparent;
+                background-color: #fffa;
+                position: absolute;
+                top: 15px;
+                left: 100px;
+            }
+
+            .start:hover {
+                background-color: greenyellow;
+                border-color: green;
             }
 
             .opener {
@@ -57,12 +81,18 @@
             padding: 15px;
             border-radius: 8px;
             background-color: #71bace33;
+            min-width: 150px;
+
             .opener {
                 display: none;
             }
 
             .description {
                 display: unset;
+            }
+
+            .start {
+                display: inline-block;
             }
 
             .closer {
@@ -86,7 +116,7 @@
          * @property {string} name
          * @property {string} url
          * @property {string} logo
-         * @property {string|HTMLElement} description
+         * @property {string|HTMLElement} [description]
          * */
 
         /** @type {App[]} */
@@ -102,42 +132,24 @@
                     ])
             },
             {
-                name: "Compass",
-                logo: "https://lborgman.github.io/compass/compass.svg",
-                url: "https://lborgman.github.io/compass/compass.html",
-                description:
-                    mkElt("div", undefined, [
-                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
-                        mkElt("div", undefined, "Yes, you can. This works."),
-                        mkElt("div", undefined, "And it will work offline too.")
-                    ])
+                name: "Hour Number",
+                logo: "https://lborgman.github.io/hour/hour2.svg",
+                url: "https://lborgman.github.io/hour/hour.html",
             },
             {
-                name: "Compass",
-                logo: "https://lborgman.github.io/compass/compass.svg",
-                url: "https://lborgman.github.io/compass/compass.html",
-                description:
-                    mkElt("div", undefined, [
-                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
-                        mkElt("div", undefined, "Yes, you can. This works."),
-                        mkElt("div", undefined, "And it will work offline too.")
-                    ])
+                name: "Mindmap 4 Internet",
+                logo: "https://lborgman.github.io/mm4i/img/mm4i.svg",
+                url: "https://mm4i.vercel.app/mm4i.html",
             },
             {
-                name: "Compass",
-                logo: "https://lborgman.github.io/compass/compass.svg",
-                url: "https://lborgman.github.io/compass/compass.html",
-                description:
-                    mkElt("div", undefined, [
-                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
-                        mkElt("div", undefined, "Yes, you can. This works."),
-                        mkElt("div", undefined, "And it will work offline too.")
-                    ])
+                name: "View Google Doc",
+                logo: "https://lborgman.github.io/responsiveGDoc/img/logo2.svg",
+                url: "https://lborgman.github.io/responsiveGDoc/responsiveGDoc.html",
             },
             {
-                name: "Compass",
-                logo: "https://lborgman.github.io/compass/compass.svg",
-                url: "https://lborgman.github.io/compass/compass.html",
+                name: "Population Growths",
+                logo: "https://lborgman.github.io/population-growth/img/favicon.svg",
+                url: "https://lborgman.github.io/population-growth/world.html",
                 description:
                     mkElt("div", undefined, [
                         mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
@@ -177,18 +189,26 @@
 
         apps.forEach(app => {
             console.log({ app });
+
             const eltOpener = mkElt("div");
             eltOpener.classList.add("opener");
+
             const eltCloser = mkElt("div", undefined, "🗙");
             eltCloser.classList.add("closer");
+
             const eltDesc = mkElt("div", undefined, app.description);
             eltDesc.classList.add("description");
+
+            const eltStart = mkElt("a", { href: app.url }, "Start");
+            eltStart.classList.add("start");
+
             const eltApp = mkElt("div", undefined, [
                 mkElt("figure", undefined, [
                     mkElt("img", { src: app.logo }),
                     mkElt("figcaption", undefined, app.name)
                 ]),
                 eltDesc,
+                eltStart,
                 eltOpener,
                 eltCloser
             ]);
