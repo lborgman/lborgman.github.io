@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+    :root {
+        font-family: Arial, sans-serif;
+    }
+
+    #id-explain {
+        padding: 15px;
+        border: 2px solid;
+        border-radius: 8px;
+        background: darkblue;
+        background: #eee;
+        color: blue;
+    }
+
     #app-container {
         nooutline: 4px dotted red;
         display: flex;
@@ -49,8 +62,8 @@
                 background-color: transparent;
                 background-color: #fffa;
                 position: absolute;
-                top: 15px;
-                left: 100px;
+                top: 50px;
+                left: 110px;
             }
 
             .start:hover {
@@ -104,7 +117,8 @@
             }
 
             .description {
-                display: unset;
+                margin-top: 5px;
+                display: block;
             }
 
             .start {
@@ -143,19 +157,28 @@
                 url: "https://lborgman.github.io/compass/compass.html",
                 description:
                     mkElt("div", undefined, [
-                        mkElt("div", undefined, "- Can you write a compass app as a PWA web page?"),
-                        mkElt("div", undefined, "- Yes, you can. And it can work offline too.")
+                        mkElt("div", undefined, "- Can a web page be a compass?"),
+                        mkElt("div", undefined, "- Yes, it can. And it can work offline.")
                     ])
             },
             {
                 name: "Hour Number",
                 logo: "https://lborgman.github.io/hour/hour2.svg",
                 url: "https://lborgman.github.io/hour/hour.html",
+                description:
+                    `
+                        Maybe a tool for deciding meeting time.
+                    `
             },
             {
                 name: "Mindmap 4 Internet",
                 logo: "https://lborgman.github.io/mm4i/img/mm4i.svg",
                 url: "https://mm4i.vercel.app/mm4i.html",
+                description:
+                    `
+                        Mindmaps you can use on both your mobile and pc.
+                        (They are however not synced yet.)
+                    `
             },
             {
                 name: "View Google Doc",
@@ -167,34 +190,28 @@
                 logo: "https://lborgman.github.io/population-growth/img/favicon.svg",
                 url: "https://lborgman.github.io/population-growth/world.html",
                 description:
-                    mkElt("div", undefined, [
-                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
-                        mkElt("div", undefined, "Yes, you can. This works."),
-                        mkElt("div", undefined, "And it will work offline too.")
-                    ])
+                    `
+                        Interactive view of long term growth.
+                    `
             },
 
             {
-                name: "Compass",
-                logo: "https://lborgman.github.io/compass/compass.svg",
-                url: "https://lborgman.github.io/compass/compass.html",
+                name: "Meditation Breathing",
+                logo: "https://lborgman.github.io/meditation-helpers/br-timer/img/ml.svg",
+                url: "https://lborgman.github.io/meditation-helpers/br-timer/moving-lines.html",
                 description:
-                    mkElt("div", undefined, [
-                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
-                        mkElt("div", undefined, "Yes, you can. This works."),
-                        mkElt("div", undefined, "And it will work offline too.")
-                    ])
+                    `
+                        Breathing timer, inhale/exhale.
+                    `
             },
             {
-                name: "Compass",
-                logo: "https://lborgman.github.io/compass/compass.svg",
-                url: "https://lborgman.github.io/compass/compass.html",
+                name: "Mindfulness Training Timer",
+                logo: "https://medi-timer-81281.web.app/favicons/meditation-timer.svg",
+                url: "https://medi-timer-81281.web.app/",
                 description:
-                    mkElt("div", undefined, [
-                        mkElt("div", undefined, "Can you write a compass app as a PWA web page?"),
-                        mkElt("div", undefined, "Yes, you can. This works."),
-                        mkElt("div", undefined, "And it will work offline too.")
-                    ])
+                    `
+                        Based on a study with mindfulness beginners.
+                    `
             }
 
         ];
@@ -280,18 +297,16 @@
 <body>
     <section style="max-width:400px;">
         <h1>Some web apps</h1>
-    <p>
-        I think I have made it to a habit
-        to write a web app when I can't find
-        a tool I trust.
-        Here are some of those apps.
-    </p>
-    <p>
-        Those app are just like web pages.
-        To use them you just visit their web page.
-        (I avoid native apps from unknown sources because
-        of possible security problems.)
-    </p>
+        <p>
+            I think I have made it to a habit
+            to write a web app when I can't find
+            a tool I trust.
+            Here are some of these apps.
+        </p>
+        <p id="id-explain">
+            Those apps are just like web pages.
+            To use them you just visit their web page.
+        </p>
     </section>
 </body>
 
