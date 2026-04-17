@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,8 +63,6 @@
                     text-decoration: none;
                     color: currentColor;
                     background-color: yellow;
-                    background-color: transparent;
-                    background-color: #fffa;
                     position: absolute;
                     top: 50px;
                     left: 110px;
@@ -126,12 +125,21 @@
 
                 .start {
                     display: inline-block;
+                    background-color: unset;
                 }
 
                 .closer {
                     display: flex;
 
                 }
+            }
+        }
+
+
+        /* Detect mobiles */
+        @media (hover: hover) {
+            .start {
+                background-color: yellow;
             }
         }
     </style>
