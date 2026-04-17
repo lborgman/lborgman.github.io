@@ -1,298 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    :root {
-        font-family: Arial, sans-serif;
-    }
-
-    #id-explain {
-        padding: 15px;
-        border: 2px solid;
-        border-radius: 8px;
-        background: darkblue;
-        background: #eee;
-        color: blue;
-    }
-
-    #app-container {
-        nooutline: 4px dotted red;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-
-        .app {
-            transition-property: width, height, display;
-            transition-duration: 2s;
-            transition-behavior: allow-discrete;
-
-            position: relative;
-            nooutline: 4px dotted green;
-
-            figure {
-                display: inline-block;
-                margin: 0px;
-                padding: 8px;
-                border: 2px solid lightgray;
-                border-radius: 8px;
-
-                img {
-                    width: 60px;
-                }
-
-                figcaption {
-                    width: 60px;
-                    overflow: clip;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                }
-            }
-
-            .description {
-                display: none;
-            }
-
-            .start {
-                display: none;
-                padding: 4px;
-                border: solid 0.5px #ccc;
-                border-radius: 4px;
-                text-decoration: none;
-                color: currentColor;
-                background-color: yellow;
-                background-color: transparent;
-                background-color: #fffa;
-                position: absolute;
-                top: 50px;
-                left: 110px;
-            }
-
-            .start:hover {
-                background-color: greenyellow;
-                border-color: green;
-            }
-
-            .opener {
-                cursor: pointer;
-                nobackground-color: red;
-                opacity: 0.2;
-                padding: 1px;
-                position: absolute;
-                left: 0px;
-                top: 0px;
-                width: 100%;
-                height: 100%;
-            }
-
-            .closer {
-                display: none;
-                cursor: pointer;
-                position: absolute;
-                right: 0px;
-                top: 0px;
-                width: 32px;
-                aspect-ratio: 1/ 1;
-                background-color: #0001;
-                justify-content: center;
-                align-items: center;
-            }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            font-family: Arial, sans-serif;
         }
 
-        .app.opened {
+        #id-explain {
             padding: 15px;
+            border: 2px solid;
             border-radius: 8px;
-            background-color: #71bace33;
-            min-width: 150px;
-            max-width: 300px;
+            background: darkblue;
+            background: #eee;
+            color: blue;
+        }
 
-            figure {
-                figcaption {
-                    display: flex;
-                    width: min-content;
-                    white-space: unset;
+        #app-container {
+            nooutline: 4px dotted red;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            .app {
+                transition-property: width, height, display;
+                transition-duration: 2s;
+                transition-behavior: allow-discrete;
+
+                position: relative;
+                nooutline: 4px dotted green;
+
+                figure {
+                    display: inline-block;
+                    margin: 0px;
+                    padding: 8px;
+                    border: 2px solid lightgray;
+                    border-radius: 8px;
+
+                    img {
+                        width: 60px;
+                    }
+
+                    figcaption {
+                        width: 60px;
+                        overflow: clip;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+
+                .description {
+                    display: none;
+                }
+
+                .start {
+                    display: none;
+                    padding: 4px;
+                    border: solid 0.5px #ccc;
+                    border-radius: 4px;
+                    text-decoration: none;
+                    color: currentColor;
+                    background-color: yellow;
+                    background-color: transparent;
+                    background-color: #fffa;
+                    position: absolute;
+                    top: 50px;
+                    left: 110px;
+                }
+
+                .start:hover {
+                    background-color: greenyellow;
+                    border-color: green;
+                }
+
+                .opener {
+                    cursor: pointer;
+                    nobackground-color: red;
+                    opacity: 0.2;
+                    padding: 1px;
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .closer {
+                    display: none;
+                    cursor: pointer;
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                    width: 32px;
+                    aspect-ratio: 1/ 1;
+                    background-color: #0001;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
 
-            .opener {
-                display: none;
-            }
+            .app.opened {
+                padding: 15px;
+                border-radius: 8px;
+                background-color: #71bace33;
+                min-width: 150px;
+                max-width: 300px;
 
-            .description {
-                margin-top: 5px;
-                display: block;
-            }
+                figure {
+                    figcaption {
+                        display: flex;
+                        width: min-content;
+                        white-space: unset;
+                    }
+                }
 
-            .start {
-                display: inline-block;
-            }
+                .opener {
+                    display: none;
+                }
 
-            .closer {
-                display: flex;
+                .description {
+                    margin-top: 5px;
+                    display: block;
+                }
 
+                .start {
+                    display: inline-block;
+                }
+
+                .closer {
+                    display: flex;
+
+                }
             }
         }
-    }
-</style>
-<script type="module">
-    // @ts-check
-    // alert("here");
+    </style>
+    <script type="module">
+        // @ts-check
+        // alert("here");
 
-    // The {} make JsDoc coloring appear??
-    {
+        // The {} make JsDoc coloring appear??
+        {
 
-        /** @typedef {any} DynamicStringObject */
+            /** @typedef {any} DynamicStringObject */
 
-        /**
-         * @typedef {Object} App
-         * @property {string} name
-         * @property {string} url
-         * @property {string} logo
-         * @property {string|HTMLElement} [description]
-         * */
+            /**
+             * @typedef {Object} App
+             * @property {string} name
+             * @property {string} url
+             * @property {string} logo
+             * @property {string|HTMLElement} [description]
+             * */
 
-        /** @type {App[]} */
-        const apps = [
-            {
-                name: "Compass",
-                logo: "https://lborgman.github.io/compass/compass.svg",
-                url: "https://lborgman.github.io/compass/compass.html",
-                description:
-                    mkElt("div", undefined, [
-                        mkElt("div", undefined, "- Can a web page be a compass?"),
-                        mkElt("div", undefined, "- Yes, it can. And it can work offline.")
-                    ])
-            },
-            {
-                name: "Hour Number",
-                logo: "https://lborgman.github.io/hour/hour2.svg",
-                url: "https://lborgman.github.io/hour/hour.html",
-                description:
-                    `
+            /** @type {App[]} */
+            const apps = [
+                {
+                    name: "Compass",
+                    logo: "https://lborgman.github.io/compass/compass.svg",
+                    url: "https://lborgman.github.io/compass/compass.html",
+                    description:
+                        mkElt("div", undefined, [
+                            mkElt("div", undefined, "- Can a web page be a compass?"),
+                            mkElt("div", undefined, "- Yes, it can. And it can work offline.")
+                        ])
+                },
+                {
+                    name: "Hour Number",
+                    logo: "https://lborgman.github.io/hour/hour2.svg",
+                    url: "https://lborgman.github.io/hour/hour.html",
+                    description:
+                        `
                         Maybe a tool for deciding meeting time.
                     `
-            },
-            {
-                name: "Mindmap 4 Internet",
-                logo: "https://lborgman.github.io/mm4i/img/mm4i.svg",
-                url: "https://mm4i.vercel.app/mm4i.html",
-                description:
-                    `
+                },
+                {
+                    name: "Mindmap 4 Internet",
+                    logo: "https://lborgman.github.io/mm4i/img/mm4i.svg",
+                    url: "https://mm4i.vercel.app/mm4i.html",
+                    description:
+                        `
                         Mindmaps you can use on both your mobile and pc.
                         (They are however not synced yet.)
                     `
-            },
-            {
-                name: "View Google Doc",
-                logo: "https://lborgman.github.io/responsiveGDoc/img/logo2.svg",
-                url: "https://lborgman.github.io/responsiveGDoc/responsiveGDoc.html",
-            },
-            {
-                name: "Population Growths",
-                logo: "https://lborgman.github.io/population-growth/img/favicon.svg",
-                url: "https://lborgman.github.io/population-growth/world.html",
-                description:
-                    `
+                },
+                {
+                    name: "View Google Doc",
+                    logo: "https://lborgman.github.io/responsiveGDoc/img/logo2.svg",
+                    url: "https://lborgman.github.io/responsiveGDoc/responsiveGDoc.html",
+                },
+                {
+                    name: "Population Growths",
+                    logo: "https://lborgman.github.io/population-growth/img/favicon.svg",
+                    url: "https://lborgman.github.io/population-growth/world.html",
+                    description:
+                        `
                         Interactive view of long term growth.
                     `
-            },
+                },
 
-            {
-                name: "Meditation Breathing",
-                logo: "https://lborgman.github.io/meditation-helpers/br-timer/img/ml.svg",
-                url: "https://lborgman.github.io/meditation-helpers/br-timer/moving-lines.html",
-                description:
-                    `
+                {
+                    name: "Meditation Breathing",
+                    logo: "https://lborgman.github.io/meditation-helpers/br-timer/img/ml.svg",
+                    url: "https://lborgman.github.io/meditation-helpers/br-timer/moving-lines.html",
+                    description:
+                        `
                         Breathing timer, inhale/exhale.
                     `
-            },
-            {
-                name: "Mindfulness Training Timer",
-                logo: "https://medi-timer-81281.web.app/favicons/meditation-timer.svg",
-                url: "https://medi-timer-81281.web.app/",
-                description:
-                    `
+                },
+                {
+                    name: "Mindfulness Training Timer",
+                    logo: "https://medi-timer-81281.web.app/favicons/meditation-timer.svg",
+                    url: "https://medi-timer-81281.web.app/",
+                    description:
+                        `
                         Based on a study with mindfulness beginners.
                     `
-            }
+                }
 
-        ];
+            ];
 
-        const eltAppContainer = mkElt("p");
-        eltAppContainer.id = "app-container";
-        document.body.appendChild(eltAppContainer);
+            const eltAppContainer = mkElt("p");
+            eltAppContainer.id = "app-container";
+            document.body.appendChild(eltAppContainer);
 
-        apps.forEach(app => {
-            console.log({ app });
+            apps.forEach(app => {
+                console.log({ app });
 
-            const eltOpener = mkElt("div");
-            eltOpener.classList.add("opener");
+                const eltOpener = mkElt("div");
+                eltOpener.classList.add("opener");
 
-            const eltCloser = mkElt("div", undefined, "🗙");
-            eltCloser.classList.add("closer");
+                const eltCloser = mkElt("div", undefined, "🗙");
+                eltCloser.classList.add("closer");
 
-            const eltDesc = mkElt("div", undefined, app.description);
-            eltDesc.classList.add("description");
+                const eltDesc = mkElt("div", undefined, app.description);
+                eltDesc.classList.add("description");
 
-            const eltStart = mkElt("a", { href: app.url }, "Start");
-            eltStart.classList.add("start");
+                const eltStart = mkElt("a", { href: app.url }, "Start");
+                eltStart.classList.add("start");
 
-            const eltApp = mkElt("div", undefined, [
-                mkElt("figure", undefined, [
-                    mkElt("img", { src: app.logo }),
-                    mkElt("figcaption", undefined, app.name)
-                ]),
-                eltDesc,
-                eltStart,
-                eltOpener,
-                eltCloser
-            ]);
-            eltApp.classList.add("app");
-            eltAppContainer.appendChild(eltApp);
-            eltOpener.addEventListener("click", evt => {
-                evt.stopPropagation();
-                eltApp.classList.add("opened");
+                const eltApp = mkElt("div", undefined, [
+                    mkElt("figure", undefined, [
+                        mkElt("img", { src: app.logo }),
+                        mkElt("figcaption", undefined, app.name)
+                    ]),
+                    eltDesc,
+                    eltStart,
+                    eltOpener,
+                    eltCloser
+                ]);
+                eltApp.classList.add("app");
+                eltAppContainer.appendChild(eltApp);
+                eltOpener.addEventListener("click", evt => {
+                    evt.stopPropagation();
+                    eltApp.classList.add("opened");
+                });
+                eltCloser.addEventListener("click", evt => {
+                    evt.stopPropagation();
+                    eltApp.classList.remove("opened");
+                });
             });
-            eltCloser.addEventListener("click", evt => {
-                evt.stopPropagation();
-                eltApp.classList.remove("opened");
-            });
-        });
-
-        /**
-         * @param {string} type 
-         * @param {DynamicStringObject} [attrib]
-         * @param {string|string[]|HTMLElement|HTMLElement[]} [inner]
-         * @returns {HTMLElement}
-         */
-        function mkElt(type, attrib, inner) {
-            const elt = document.createElement(type);
 
             /**
-             * 
-             * @param {HTMLElement | HTMLElement[] | string | string[]} inr 
+             * @param {string} type 
+             * @param {DynamicStringObject} [attrib]
+             * @param {string|string[]|HTMLElement|HTMLElement[]} [inner]
+             * @returns {HTMLElement}
              */
-            function addInner(inr) {
-                if (inr instanceof Element) {
-                    elt.appendChild(inr);
-                } else {
-                    const txt = document.createTextNode(inr.toString());
-                    elt.appendChild(txt);
+            function mkElt(type, attrib, inner) {
+                const elt = document.createElement(type);
+
+                /**
+                 * 
+                 * @param {HTMLElement | HTMLElement[] | string | string[]} inr 
+                 */
+                function addInner(inr) {
+                    if (inr instanceof Element) {
+                        elt.appendChild(inr);
+                    } else {
+                        const txt = document.createTextNode(inr.toString());
+                        elt.appendChild(txt);
+                    }
                 }
+                if (inner) {
+                    if (Array.isArray(inner) && inner.length && typeof inner != "string") {
+                        for (var i = 0; i < inner.length; i++)
+                            if (inner[i])
+                                addInner(inner[i]);
+                    } else
+                        addInner(inner);
+                }
+                for (var x in attrib) {
+                    elt.setAttribute(x, attrib[x]);
+                }
+                return elt;
             }
-            if (inner) {
-                if (Array.isArray(inner) && inner.length && typeof inner != "string") {
-                    for (var i = 0; i < inner.length; i++)
-                        if (inner[i])
-                            addInner(inner[i]);
-                } else
-                    addInner(inner);
-            }
-            for (var x in attrib) {
-                elt.setAttribute(x, attrib[x]);
-            }
-            return elt;
         }
-    }
-</script>
+    </script>
+</head>
 
 <body>
     <section style="max-width:400px;">
