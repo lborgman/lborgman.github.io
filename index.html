@@ -57,7 +57,8 @@
 
                 .start {
                     display: none;
-                    padding: 4px;
+                    padding: 6px;
+                    text-transform: uppercase;
                     border: solid 0.5px #ccc;
                     border-radius: 4px;
                     text-decoration: none;
@@ -237,7 +238,8 @@
                 const eltOpener = mkElt("div");
                 eltOpener.classList.add("opener");
 
-                const eltCloser = mkElt("div", undefined, "🗙");
+                // const eltCloser = mkElt("div", undefined, "🗙");
+                const eltCloser = mkElt("div", undefined, "✕");
                 eltCloser.classList.add("closer");
 
                 const eltDesc = mkElt("div", undefined, app.description);
@@ -308,7 +310,7 @@
 
 <body>
     <section style="max-width:400px;">
-        <h1>Some web apps</h1>
+        <h1>Some web apps (ver 0.001)</h1>
         <p>
             I think I have made it to a habit
             to write a web app when I can't find
