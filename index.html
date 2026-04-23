@@ -46,6 +46,7 @@
         }
 
         .pwa-marked {
+            display: inline-block;
             background-color: black;
             color: violet;
             font-size: 12px;
@@ -137,7 +138,7 @@
             }
 
             .app.opened.pwa::after {
-                content: "PWA";
+                content: "PWA🛡️";
                 position: absolute;
                 display: inline-block;
                 top: 10px;
@@ -444,7 +445,9 @@
                 than to write a native app for it.
             </p>
             <p>
-                But the main reason I prefer PWA:s is security.
+                But the main reason I prefer PWA:s is security. 🛡️
+            </p>
+            <p>
                 I asked Claude AI for a link to a web page that
                 explained this is a non-technical way.
                 Neither the AI or I could find such a web page.
@@ -460,21 +463,23 @@
                     <li>
                         A native app is like letting someone into your house
                         — you checked their ID at the door,
-                        but once they're in, they can move around
+                        but once they're in, they can move around.
                     <li>
                         A PWA is like talking to someone through a window
-                        — less vetting, but they can't actually get inside
+                        — less vetting, but they can't actually get inside.
                 </ul>
             </blockquote>
 
             <p>
                 It is some extra work to make a web app into a PWA.
-                The benefits are that a PWA can work offline.
-                And that some abilities are not available without making it info a PWA.
+                A main benefits are that a PWA can work offline.
+                And some abilities are not available without making it info a PWA.
+            </p>
+            <p>
                 Currenlty I believe I have made "Compass" into a PWA (for obvious reasons).
-                Those apps made into a PWA will have a
+                Those web apps that are PWA:s have a
                 mark:
-                <span class="pwa-marked">PWA</span>.
+                <span class="pwa-marked">PWA🛡️</span>
             </p>
             <details>
                 <summary>Enabling a PWA</summary>
