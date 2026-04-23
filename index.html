@@ -45,6 +45,15 @@
             color: blue;
         }
 
+        .pwa-marked {
+            background-color: black;
+            color: violet;
+            font-size: 12px;
+            outline: 1px solid;
+            padding: 3px;
+            border-radius: 3px;
+        }
+
         #app-container {
             nooutline: 4px dotted red;
             display: flex;
@@ -125,6 +134,20 @@
                     justify-content: center;
                     align-items: center;
                 }
+            }
+
+            .app.opened.pwa::after {
+                content: "PWA";
+                position: absolute;
+                display: inline-block;
+                top: 10px;
+                left: 95px;
+                background-color: black;
+                color: violet;
+                font-size: 12px;
+                outline: 1px solid;
+                padding: 3px;
+                border-radius: 3px;
             }
 
             .app.opened {
@@ -228,6 +251,7 @@
              * @property {string} name
              * @property {string} url
              * @property {string} logo
+             * @property {boolean} [pwa]
              * @property {string|HTMLElement} [description]
              * */
 
@@ -237,6 +261,7 @@
                     name: "Compass",
                     logo: "https://lborgman.github.io/compass/compass.svg",
                     url: "https://lborgman.github.io/compass/compass.html",
+                    pwa: true,
                     description:
                         mkElt("div", undefined, [
                             mkElt("div", undefined, "- Can a web page be a compass?"),
@@ -343,6 +368,7 @@
                     eltCloser
                 ]);
                 eltApp.classList.add("app");
+                if (app.pwa) { eltApp.classList.add("pwa"); }
                 eltAppContainer.appendChild(eltApp);
                 eltOpener.addEventListener("click", evt => {
                     evt.stopPropagation();
@@ -441,7 +467,16 @@
                 </ul>
             </blockquote>
 
-        </div>
+            <p>
+                It is some extra work to make a web app into a PWA.
+                The benefits are that a PWA can work offline.
+                And that some abilities are not available without making it info a PWA.
+                Currenlty I believe I have made "Compass" into a PWA (for obvious reasons).
+                Those apps made into a PWA will have a
+                mark:
+                <span class="pwa-marked">PWA</span>.
+            </p>
+            </div>
     </section>
 </body>
 
