@@ -14,6 +14,27 @@
             background-color: color-mix(white 80%, orange 20%);
         }
 
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C" "\201D" "\2018" "\2019";
+        }
+
+        blockquote:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
+
+        blockquote p {
+            display: inline;
+        }
+
         #id-explain-web-apps {
             padding: 15px;
             border: 2px solid;
@@ -388,33 +409,34 @@
                 You may wonder why I do not write "real/native" apps insted.
             </p>
             <p>
-                My answer is that advanced web pages apps (called
-                <a href="https://en.wikipedia.org/wiki/Progressive_web_app:">PWA</a>) today can do mostly anything
+                My answer is that advanced web pages apps (technically called
+                <a href="https://en.wikipedia.org/wiki/Progressive_web_app:">PWA</a>)
+                today can do mostly anything
                 that "native" apps can do for you as a user.
                 And it is much less job to write a web page for something complicated
-                than to write a native apps for it.
+                than to write a native app for it.
             </p>
             <p>
                 But the main reason I prefer PWA:s is security.
-                I asked Claude AI for a link to a web page that 
+                I asked Claude AI for a link to a web page that
                 explained this is a non-technical way.
                 Neither the AI or I could find such a web page.
                 However, to my surprise
                 <a href="https://claude.ai/share/84c2d2e8-c61e-476e-89ba-a04147134f83">
-                Claude found an analogy
-                that is very good
+                    Claude found an analogy
+                    that is very good
                 </a>:
             </p>
             <blockquote>
                 Maybe the angle is everyday analogies rather than technical concepts. Something like:
                 <ul>
                     <li>
-                    A native app is like letting someone into your house
-                    — you checked their ID at the door,
-                    but once they're in, they can move around
+                        A native app is like letting someone into your house
+                        — you checked their ID at the door,
+                        but once they're in, they can move around
                     <li>
-                    A PWA is like talking to someone through a window
-                    — less vetting, but they can't actually get inside
+                        A PWA is like talking to someone through a window
+                        — less vetting, but they can't actually get inside
                 </ul>
             </blockquote>
 
