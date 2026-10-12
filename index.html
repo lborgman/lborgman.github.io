@@ -276,7 +276,7 @@
                     `
                 },
                 {
-                    name: "Mindmap 4 Internet",
+                    name: "Mindmap 4 Internet (old version)",
                     logo: "https://lborgman.github.io/mm4i/img/mm4i.svg",
                     url: "https://mm4i.vercel.app/mm4i.html",
                     description:
@@ -285,6 +285,17 @@
                         (They are however not synced yet.)
                     `
                 },
+                {
+                    name: "Mindmap 4 Internet",
+                    logo: "https://lborgman.github.io/mm4i/img/mm4i.svg",
+                    url: "https://lborgman.github.io/mm4i/mm4i.html",
+                    description:
+                        `
+                        Mindmaps you can use on both your mobile and pc.
+                        (They are however not synced yet.)
+                    `
+                },
+
                 {
                     name: "View Google Doc",
                     logo: "https://lborgman.github.io/responsiveGDoc/img/logo2.svg",
@@ -421,7 +432,7 @@
                 const eltStart = mkElt("a", {
                     href: app.url,
                     title: `- Open the web app page`
-                 }, "Open");
+                }, "Open");
                 eltStart.classList.add("start");
 
                 const eltApp = mkElt("div", undefined, [
